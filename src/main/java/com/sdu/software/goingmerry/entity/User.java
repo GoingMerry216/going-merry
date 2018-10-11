@@ -1,4 +1,4 @@
-package entity;
+package com.sdu.software.goingmerry.entity;
 
 import java.io.Serializable;
 

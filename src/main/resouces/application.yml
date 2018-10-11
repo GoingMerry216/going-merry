@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    name: picc
+    url: jdbc:mysql://127.0.0.1:3306/DAP?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    username: root
+    password: new_password
+    
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8080

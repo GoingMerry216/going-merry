@@ -2,8 +2,7 @@ package com.sdu.software.goingmerry.service;
 
 import com.sdu.software.goingmerry.common.GoingMerryException;
 import com.sdu.software.goingmerry.common.ResultList;
-
-import entity.User;
+import com.sdu.software.goingmerry.entity.User;
 
 public interface IUserService {
 
@@ -15,10 +14,6 @@ public interface IUserService {
 
 	public User updateUser(String userId, User user) throws GoingMerryException;
 
-	public User updateUserPassword(String userId, User user) throws GoingMerryException;
-
 	public User deleteUser(String userId, User user) throws GoingMerryException;
 
-	public User login(User user) throws GoingMerryException;
-	
 }

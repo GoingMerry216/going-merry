@@ -5,9 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sdu.software.goingmerry.common.GoingMerryException;
 import com.sdu.software.goingmerry.common.ResultList;
+import com.sdu.software.goingmerry.entity.User;
 import com.sdu.software.goingmerry.service.IUserService;
-
-import entity.User;
 
 @Service
 @Transactional(rollbackFor = Throwable.class)
@@ -38,21 +37,9 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User updateUserPassword(String userId, User user) throws GoingMerryException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public User deleteUser(String userId, User user) throws GoingMerryException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public User login(User user) throws GoingMerryException {
-		user.setToken("ojbk");
-		return user;
 	}
 
 }
