@@ -1,5 +1,6 @@
 package com.sdu.software.goingmerry.controller;
 
+import com.sdu.software.goingmerry.common.Constants;
 import com.sdu.software.goingmerry.core.Result;
 import com.sdu.software.goingmerry.core.ResultGenerator;
 import com.sdu.software.goingmerry.model.Comment;
@@ -20,7 +21,7 @@ import java.util.List;
  * @data 2020/04/10.
  */
 @RestController
-@RequestMapping("/comment")
+@RequestMapping(value = Constants.API_PREFIX + "/comment")
 @Api(value = "Comment控制类", description = "控制类接口测试")
 public class CommentController {
     @Resource

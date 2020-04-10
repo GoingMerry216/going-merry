@@ -1,5 +1,6 @@
 package com.sdu.software.goingmerry.controller;
 
+import com.sdu.software.goingmerry.common.Constants;
 import com.sdu.software.goingmerry.core.Result;
 import com.sdu.software.goingmerry.core.ResultGenerator;
 import com.sdu.software.goingmerry.model.User;
@@ -20,7 +21,7 @@ import java.util.List;
  * @data 2020/04/10.
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value = Constants.API_PREFIX + "/user")
 @Api(value = "User控制类", description = "控制类接口测试")
 public class UserController {
     @Resource

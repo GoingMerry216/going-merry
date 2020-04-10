@@ -11,8 +11,9 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sdu.software.goingmerry.common.Constants;
@@ -35,7 +36,7 @@ public class LoginController {
 	@Autowired
 	ILoginService loginService;
 
-	@RequestMapping(method = RequestMethod.PUT, value = "/{userId}/changepassword")
+	@PutMapping(value = "/{userId}/changepassword")
 	@ApiOperation(value = "更新用户密码")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "用户更新成功", response = User.class) })
 	User updateUserPassword(@ApiParam(value = "用户id", required = true) @PathParam("userId") String userId,
@@ -43,7 +44,7 @@ public class LoginController {
 		return loginService.updateUserPassword(userId, user);
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping
 	@ApiOperation(value = "用户登录")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "用户登录成功", response = User.class) })
 	User login(@ApiParam(value = "用户", required = true) User user) throws GoingMerryException {
