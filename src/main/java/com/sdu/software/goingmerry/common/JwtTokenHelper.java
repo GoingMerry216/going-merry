@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sdu.software.goingmerry.entity.User;
-import com.sdu.software.goingmerry.service.IUserService;
+import com.sdu.software.goingmerry.model.User;
+import com.sdu.software.goingmerry.service.UserService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -21,10 +21,10 @@ public class JwtTokenHelper {
 	private long expiration/* Seconds */ = TimeUnit.DAYS.toSeconds(1);
 
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
 
 	public String generateToken(User user) {
-		Claims claims = Jwts.claims().setSubject(user.getUserId());
+		Claims claims = Jwts.claims().setSubject(user.getUserId().toString());
 		// CapRole[] roles =
 		// coframeServiceFactory.getCapPartyauthService().getAuths(user.getUserId());
 		// String[] roleCodes = new String[0];

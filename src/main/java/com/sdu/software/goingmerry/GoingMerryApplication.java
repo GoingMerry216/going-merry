@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /**
  * 
  * GoingMerry启动类
@@ -11,10 +13,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @author Lyp (mailto:Lyp@primeton.com)
  */
 @SpringBootApplication
+@EnableSwagger2
 @EnableScheduling
 public class GoingMerryApplication {
 	public static void main(String[] args) {
-		SpringApplication application = new SpringApplication(GoingMerryApplication.class);
-		application.run(args);
+		SpringApplication.run(GoingMerryApplication.class, args);
 	}
 }

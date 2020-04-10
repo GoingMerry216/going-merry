@@ -10,7 +10,7 @@ package com.sdu.software.goingmerry.service.impl;
 import org.springframework.stereotype.Service;
 
 import com.sdu.software.goingmerry.common.GoingMerryException;
-import com.sdu.software.goingmerry.entity.User;
+import com.sdu.software.goingmerry.model.User;
 import com.sdu.software.goingmerry.service.ILoginService;
 
 @Service

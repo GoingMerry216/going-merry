@@ -8,7 +8,7 @@
 package com.sdu.software.goingmerry.service;
 
 import com.sdu.software.goingmerry.common.GoingMerryException;
-import com.sdu.software.goingmerry.entity.User;
+import com.sdu.software.goingmerry.model.User;
 
 public interface ILoginService {
 	public User updateUserPassword(String userId, User user) throws GoingMerryException;

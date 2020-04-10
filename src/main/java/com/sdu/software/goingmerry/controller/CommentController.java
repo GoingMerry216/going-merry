@@ -2,8 +2,8 @@ package com.sdu.software.goingmerry.controller;
 
 import com.sdu.software.goingmerry.core.Result;
 import com.sdu.software.goingmerry.core.ResultGenerator;
-import com.sdu.software.goingmerry.model.User;
-import com.sdu.software.goingmerry.service.UserService;
+import com.sdu.software.goingmerry.model.Comment;
+import com.sdu.software.goingmerry.service.CommentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -20,11 +20,11 @@ import java.util.List;
  * @data 2020/04/10.
  */
 @RestController
-@RequestMapping("/user")
-@Api(value = "User控制类", description = "控制类接口测试")
-public class UserController {
+@RequestMapping("/comment")
+@Api(value = "Comment控制类", description = "控制类接口测试")
+public class CommentController {
     @Resource
-    private UserService userService;
+    private CommentService commentService;
 
     @GetMapping
     @ApiOperation(value = "获取全部",notes = "返回分页过后的数据",httpMethod = "GET")
@@ -33,19 +33,19 @@ public class UserController {
             @ApiImplicitParam(name = "size",value = "每页数据量", paramType = "query",dataType = "Integer",defaultValue = "0")
     })
     public Result
-<PageInfo<User>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+<PageInfo<Comment>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<User> list = userService.findAll();
-        PageInfo<User> pageInfo = new PageInfo<>(list);
+        List<Comment> list = commentService.findAll();
+        PageInfo<Comment> pageInfo = new PageInfo<>(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
     @PostMapping
     @ApiOperation(value = "添加数据",notes = "添加新的数据",httpMethod = "POST")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user",value = "待添加的user实例",paramType = "body",dataType = "User",required = true)
+            @ApiImplicitParam(name = "comment",value = "待添加的comment实例",paramType = "body",dataType = "Comment",required = true)
     })
-    public Result add(@RequestBody User user) {
-        userService.save(user);
+    public Result add(@RequestBody Comment comment) {
+        commentService.save(comment);
         return ResultGenerator.genSuccessResult();
     }
 
@@ -55,17 +55,17 @@ public class UserController {
             @ApiImplicitParam(name = "id",value = "查询的id", paramType = "path",required = true,dataType = "Integer"),
     })
     public Result delete(@PathVariable Integer id) {
-        userService.deleteById(id);
+        commentService.deleteById(id);
         return ResultGenerator.genSuccessResult();
     }
 
     @PutMapping
     @ApiOperation(value = "更新数据",notes = "根据内容更新数据",httpMethod = "PUT")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user",value = "更新的user实例",paramType = "body",dataType = "User",required = true)
+            @ApiImplicitParam(name = "comment",value = "更新的comment实例",paramType = "body",dataType = "Comment",required = true)
     })
-    public Result update(@RequestBody User user) {
-        userService.update(user);
+    public Result update(@RequestBody Comment comment) {
+        commentService.update(comment);
         return ResultGenerator.genSuccessResult();
     }
 
@@ -75,8 +75,8 @@ public class UserController {
             @ApiImplicitParam(name = "id",value = "查询的id", paramType = "path",required = true,dataType = "Integer",defaultValue = "0")
     })
     public Result detail(@PathVariable Integer id) {
-        User user = userService.findById(id);
-        return ResultGenerator.genSuccessResult(user);
+        Comment comment = commentService.findById(id);
+        return ResultGenerator.genSuccessResult(comment);
     }
 
 

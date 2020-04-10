@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sdu.software.goingmerry.common.Constants;
 import com.sdu.software.goingmerry.common.GoingMerryException;
-import com.sdu.software.goingmerry.entity.User;
+import com.sdu.software.goingmerry.model.User;
 import com.sdu.software.goingmerry.service.ILoginService;
 
 import io.swagger.annotations.Api;
@@ -36,7 +36,7 @@ public class LoginController {
 	ILoginService loginService;
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{userId}/changepassword")
-	@ApiOperation(value = "更新用户")
+	@ApiOperation(value = "更新用户密码")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "用户更新成功", response = User.class) })
 	User updateUserPassword(@ApiParam(value = "用户id", required = true) @PathParam("userId") String userId,
 			@ApiParam(value = "用户", required = true) User user) throws GoingMerryException {
