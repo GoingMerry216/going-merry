@@ -5,13 +5,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sdu.software.goingmerry.core.ProjectConstant;
 
+import io.swagger.models.parameters.AbstractSerializableParameter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.json.JacksonModuleRegistrar;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
@@ -32,6 +36,21 @@ public class Swagger2Configurer implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
+    @Bean
+    public JacksonModuleRegistrar customizeJacksonModuleRegistrar() {
+        return new JacksonModuleRegistrar() {
+            @Override
+            public void maybeRegisterModule(ObjectMapper objectMapper) {
+                objectMapper.addMixIn(AbstractSerializableParameter.class, IgnoreExampleMixIn.class);
+            }
+        };
+    }
+
+    interface IgnoreExampleMixIn {
+        @JsonIgnore
+        Object getExample();
     }
 
 
