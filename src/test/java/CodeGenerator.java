@@ -38,9 +38,9 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
 //        genCode("gkd_user");
-//        genCodeByCustomModelName("gkd_user","User");
-//        genCodeByCustomModelName("gkd_article","Article");
-//        genCodeByCustomModelName("gkd_comment","Comment");
+        genCodeByCustomModelName("gkd_user","User");
+        genCodeByCustomModelName("gkd_article","Article");
+        genCodeByCustomModelName("gkd_comment","Comment");
     }
 
     /**
@@ -79,6 +79,7 @@ public class CodeGenerator {
         jdbcConnectionConfiguration.setUserId(JDBC_USERNAME);
         jdbcConnectionConfiguration.setPassword(JDBC_PASSWORD);
         jdbcConnectionConfiguration.setDriverClass(JDBC_DIVER_CLASS_NAME);
+        jdbcConnectionConfiguration.addProperty("nullCatalogMeansCurrent", "true");
         context.setJdbcConnectionConfiguration(jdbcConnectionConfiguration);
 
         PluginConfiguration pluginConfiguration = new PluginConfiguration();
@@ -95,6 +96,7 @@ public class CodeGenerator {
         swaggerConfiguration.setConfigurationType("com.sdu.software.goingmerry.GeneratorSwagger2Model");
         swaggerConfiguration.addProperty("apiModelAnnotationPackage", "io.swagger.annotations.ApiModel");
         swaggerConfiguration.addProperty("apiModelPropertyAnnotationPackage", "io.swagger.annotations.ApiModelProperty");
+        pluginConfiguration.addProperty("lombok", "needsData");
         context.addPluginConfiguration(swaggerConfiguration);
 
         JavaModelGeneratorConfiguration javaModelGeneratorConfiguration = new JavaModelGeneratorConfiguration();
@@ -184,6 +186,7 @@ public class CodeGenerator {
             data.put("date", DATE);
             data.put("author", AUTHOR);
             String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? tableNameConvertUpperCamel(tableName) : modelName;
+            data.put("apiVersion", API_VERSION);
             data.put("baseRequestMapping", modelNameConvertMappingPath(modelNameUpperCamel));
             data.put("modelNameUpperCamel", modelNameUpperCamel);
             data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));

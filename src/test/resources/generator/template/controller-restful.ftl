@@ -20,8 +20,8 @@ import java.util.List;
  * @data ${date}.
  */
 @RestController
-@RequestMapping("${baseRequestMapping}")
-@Api(value = "${modelNameUpperCamel}控制类", description = "控制类接口测试")
+@RequestMapping("api/${apiVersion}${baseRequestMapping}")
+@Api(value = "${modelNameUpperCamel}控制类")
 public class ${modelNameUpperCamel}Controller {
     @Resource
     private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
@@ -32,8 +32,7 @@ public class ${modelNameUpperCamel}Controller {
             @ApiImplicitParam(name = "page",value = "查询页码", paramType = "query",dataType = "Integer",defaultValue = "0"),
             @ApiImplicitParam(name = "size",value = "每页数据量", paramType = "query",dataType = "Integer",defaultValue = "0")
     })
-    public Result
-<PageInfo<${modelNameUpperCamel}>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public Result<PageInfo<${modelNameUpperCamel}>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo<${modelNameUpperCamel}> pageInfo = new PageInfo<>(list);
