@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="article_id" jdbcType="INTEGER" property="articleId" />
+    <id column="article_id" jdbcType="INTEGER" property="articleId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="summary" jdbcType="VARCHAR" property="summary" />
     <result column="content" jdbcType="VARCHAR" property="content" />

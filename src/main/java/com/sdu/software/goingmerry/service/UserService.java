@@ -5,7 +5,7 @@ import com.sdu.software.goingmerry.core.Service;
 
 /**
  * @author Liyp
- * @data 2020/04/10.
+ * @data 2020/04/13.
  */
 public interface UserService extends Service<User> {
 

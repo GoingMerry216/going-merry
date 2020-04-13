@@ -5,7 +5,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
+    <id column="comment_id" jdbcType="INTEGER" property="commentId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="target" jdbcType="VARCHAR" property="target" />
     <result column="comment_parent_id" jdbcType="INTEGER" property="commentParentId" />

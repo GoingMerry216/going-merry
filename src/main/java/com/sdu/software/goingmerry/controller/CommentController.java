@@ -1,6 +1,5 @@
 package com.sdu.software.goingmerry.controller;
 
-import com.sdu.software.goingmerry.common.Constants;
 import com.sdu.software.goingmerry.core.Result;
 import com.sdu.software.goingmerry.core.ResultGenerator;
 import com.sdu.software.goingmerry.model.Comment;
@@ -18,11 +17,11 @@ import java.util.List;
 
 /**
  * @author Liyp
- * @data 2020/04/10.
+ * @data 2020/04/13.
  */
 @RestController
-@RequestMapping(value = Constants.API_PREFIX + "/comment")
-@Api(value = "Comment控制类", description = "控制类接口测试")
+@RequestMapping("api/v1/comment")
+@Api(value = "Comment控制类")
 public class CommentController {
     @Resource
     private CommentService commentService;
@@ -33,8 +32,7 @@ public class CommentController {
             @ApiImplicitParam(name = "page",value = "查询页码", paramType = "query",dataType = "Integer",defaultValue = "0"),
             @ApiImplicitParam(name = "size",value = "每页数据量", paramType = "query",dataType = "Integer",defaultValue = "0")
     })
-    public Result
-<PageInfo<Comment>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public Result<PageInfo<Comment>> list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<Comment> list = commentService.findAll();
         PageInfo<Comment> pageInfo = new PageInfo<>(list);
