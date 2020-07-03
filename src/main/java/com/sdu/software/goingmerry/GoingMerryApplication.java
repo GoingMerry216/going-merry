@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 
  * GoingMerry启动类
  *
- * @author Lyp (mailto:Lyp@primeton.com)
+ * @author Liyp (mailto:lyp-006@163.com)
  */
 @SpringBootApplication
 @EnableSwagger2

@@ -20,7 +20,7 @@ import java.util.Properties;
 
 /**
  * Mybatis & Mapper & PageHelper 配置
- * @author Gahon
+ * @author Liyp
  */
 @Configuration
 public class MybatisConfigurer {

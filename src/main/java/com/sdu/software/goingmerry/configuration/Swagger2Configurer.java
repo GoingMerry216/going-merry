@@ -19,7 +19,7 @@ import springfox.documentation.spring.web.json.JacksonModuleRegistrar;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * @author Gahon
+ * @author Liyp
  */
 @Configuration
 public class Swagger2Configurer implements WebMvcConfigurer {
