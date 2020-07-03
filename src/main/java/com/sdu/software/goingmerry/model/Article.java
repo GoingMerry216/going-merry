@@ -4,10 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import javax.persistence.*;
-import lombok.Data;
 
 @ApiModel(value="Article")
-@Data
 @Table(name = "gkd_article")
 public class Article {
     @Id
