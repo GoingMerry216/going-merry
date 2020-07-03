@@ -96,7 +96,7 @@ public class CodeGenerator {
         swaggerConfiguration.setConfigurationType("com.sdu.software.goingmerry.GeneratorSwagger2Model");
         swaggerConfiguration.addProperty("apiModelAnnotationPackage", "io.swagger.annotations.ApiModel");
         swaggerConfiguration.addProperty("apiModelPropertyAnnotationPackage", "io.swagger.annotations.ApiModelProperty");
-        pluginConfiguration.addProperty("lombok", "needsData");
+        // pluginConfiguration.addProperty("lombok", "needsData");
         context.addPluginConfiguration(swaggerConfiguration);
 
         JavaModelGeneratorConfiguration javaModelGeneratorConfiguration = new JavaModelGeneratorConfiguration();

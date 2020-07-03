@@ -20,7 +20,7 @@ import java.util.List;
  * @data ${date}.
  */
 @RestController
-@RequestMapping("api/${apiVersion}${baseRequestMapping}")
+@RequestMapping("api/${apiVersion}${baseRequestMapping}s")
 @Api(value = "${modelNameUpperCamel}控制类")
 public class ${modelNameUpperCamel}Controller {
     @Resource
