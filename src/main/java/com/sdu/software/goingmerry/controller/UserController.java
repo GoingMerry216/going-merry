@@ -20,7 +20,7 @@ import java.util.List;
  * @data 2020/04/13.
  */
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("api/v1/users")
 @Api(value = "User控制类")
 public class UserController {
     @Resource

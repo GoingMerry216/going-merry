@@ -20,7 +20,7 @@ import java.util.List;
  * @data 2020/04/13.
  */
 @RestController
-@RequestMapping("api/v1/comment")
+@RequestMapping("api/v1/comments")
 @Api(value = "Comment控制类")
 public class CommentController {
     @Resource
